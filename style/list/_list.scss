@@ -1,0 +1,26 @@
+@use '../var';
+
+.list {
+    display: flex;
+    align-items: center;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        cursor: pointer;
+        position: relative;
+        border-radius: 6px;
+        border: 1px solid transparent;
+
+        a {
+            text-decoration: none;
+            white-space: nowrap;
+            color: var.$black-color;
+            
+            &:active {
+                color: var.$black-color;
+            }
+        }
+    }
+}

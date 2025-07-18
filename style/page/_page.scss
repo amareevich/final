@@ -1,0 +1,125 @@
+@keyframes modal--open {
+    0% {
+        right: -1400px;
+    }
+
+    100% {
+        right: 0px;
+    }
+}
+
+@keyframes modal--close {
+    0% {
+        right: 0px;
+        display: flex;
+    }
+
+    100% {
+        right: -1400px;
+    }
+}
+
+@keyframes menu--open {
+    0% {
+        left: -360px;
+    }
+
+    100% {
+        left: 0px;
+    }
+}
+
+@keyframes menu--close {
+    0% {
+        left: 0px;
+        display: flex;
+    }
+
+    100% {
+        left: -360px;
+    }
+}
+
+@mixin animation() {
+    animation-timing-function: ease;
+    animation-fill-mode: backwards;
+    animation-delay: 0ms;
+    animation-duration: 0.3s;
+    position: absolute;
+    top: 0;
+}
+
+.page {
+    width: auto;
+    height: auto;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+
+    @media (min-width: 1336px) {
+        justify-content: center;
+    }
+
+    &__modal {
+        display: none;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        opacity: 0.7;
+        backdrop-filter: blur(5px);
+
+        @media (max-width: 1335px) {
+            &--action--open {
+                display: flex;
+                animation-name: modal--open;
+                right: 0;
+                z-index: 1;
+                @include animation();
+            }
+
+            &--action--close {
+                animation-name: modal--close;
+                right: -1400px;
+                z-index: 1;
+                @include animation();
+            }
+        }
+    }
+
+    &__menu {
+        display: none;
+        flex-direction: column;
+        width: 320px;
+
+        @media(max-width: 1335px) {
+            &--action--open {
+                display: flex;
+                animation-name: menu--open;
+                left: 0;
+                z-index: 2;
+                box-shadow: 16px 0 52px rgba(14, 24, 80, 0.2);
+                @include animation();
+            }
+
+            &--action--close {
+                animation-name: menu--close;
+                left: -360px;
+                z-index: 2;
+                @include animation();
+            }
+        }
+
+        @media (min-width: 1336px) {
+            display: flex;
+        }
+    }
+
+    &__container {
+        width: 100%;
+
+        @media (min-width: 1336px) {
+            max-width: 1120px;
+            box-shadow: 0px 2px 4px 0px rgb(0, 0, 0);
+        }
+    }
+}

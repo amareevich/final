@@ -1,0 +1,22 @@
+@use '../var';
+
+.langue-btn {
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    @include var.a-font;
+    font-weight: 500;
+    @include var.transition-func(color);
+
+    &:hover {
+        color: var.$black-grey-color;
+    }
+
+    @media #{var.$s-max} {
+        margin-top: 8px;
+    }
+
+    @media #{var.$l-min} {
+        margin-top: 40px;
+    }
+}
