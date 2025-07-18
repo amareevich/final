@@ -6,7 +6,6 @@ import CopyWebpackPlugin from "copy-webpack-plugin";
 import ESLintWebpackPlugin from "eslint-webpack-plugin";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
 export default {
   mode: "development",
   entry: "./script.js",
