@@ -1,0 +1,133 @@
+@use '../var';
+
+.header {
+
+    width: 100%;
+
+    @media #{var.$l-min} {
+        max-width: 1120px;
+    }
+
+    &__navigation {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        padding: 24px;
+
+        @media #{var.$s-max} {
+
+            justify-content: space-between;
+            box-shadow: inset 0 -0.5px 0px 0px var.$aqua-color;
+
+            .header__list--type--logo {
+                gap: 16px;
+
+                .list__item:first-child {
+                    display: none;
+                }
+            }
+
+            .header__list--type--connection {
+                display: none;
+            }
+
+            .header__list--type--status {
+                gap: 16px;
+
+                .list__text {
+                    display: none;
+                }
+            }
+        }
+
+        @media #{var.$s-min} and #{var.$l-max} {
+            justify-content: flex-end;
+            box-shadow: inset 0 -0.5px 0px 0px var.$aqua-color;
+
+            .header__list--type--logo {
+                gap: 20px;
+                position: absolute;
+                left: 24px;
+
+                .list__item:first-child {
+                    display: none;
+                }
+            }
+
+            .header__list--type--connection {
+                gap: 16px;
+            }
+
+            .header__list--type--status {
+                gap: 16px;
+
+                .list__text {
+                    display: none;
+                }
+            }
+        }
+
+        @media #{var.$l-min} {
+            justify-content: space-between;
+            background-color: var.$grey-color;
+
+            .header__list--type--logo {
+
+                .list__item:not(:first-child) {
+                    display: none;
+                }
+
+                .list__item:first-child {
+                    display: block;
+                    @include var.heading-font;
+
+                    :before {
+                        content: "";
+                        width: 4px;
+                        height: 40px;
+                        border-radius: 6px;
+                        background: var.$aqua-color;
+                        opacity: 0;
+                        position: absolute;
+                        left: -25px;
+                        top: 0;
+                        @include var.transition-func(opacity);
+                    }
+
+                    &:hover {
+                        :before {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            .header__list--type--connection {
+                display: none;
+            }
+
+            .header__list--type--status {
+                gap: 32px;
+
+                .list__item {
+                    gap: 8px;
+
+
+                    &:hover {
+                        .list__text {
+                            @include var.transition-func(color);
+                            color: var.$black-grey-color;
+                        }
+
+                        .button {
+                            @include var.transition-func(box-shadow);
+                            @include var.hover-button;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+}

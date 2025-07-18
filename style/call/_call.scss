@@ -1,0 +1,25 @@
+@use '../var';
+
+@keyframes feedback--open {
+    0% {
+        right: -440px;
+    }
+
+    100% {
+        right: 0px;
+    }
+}
+
+@keyframes feedback--close {
+    0% {
+        right: 0px;
+        display: flex;
+    }
+
+    100% {
+        right: -550px;
+    }
+}
+
+$feedback: '.call';
+@include var.user-action($feedback);

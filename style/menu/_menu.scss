@@ -1,0 +1,132 @@
+@use '../var';
+
+.menu {
+    background-color: white;
+    padding: 24px;
+
+    .logo {
+        width: 102px;
+        height: 51px;
+    }
+
+    &__header {
+        display: flex;
+    }
+
+    &__navigation {
+        display: flex;
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: column;
+
+        @media #{var.$l-max} {
+            margin-top: 32px;
+        }
+
+        @media #{var.$l-min} {
+            margin-top: 241px;
+        }
+    }
+
+    &__list--type--header {
+        width: inherit;
+
+        @media #{var.$l-max} {
+            .list__item:first-child {
+                margin-right: 16px;
+            }
+
+            .list__item:last-child {
+                margin-left: 70.8px;
+            }
+        }
+
+        @media #{var.$l-min} {
+            .list__item:first-child {
+                display: none;
+            }
+
+            .list__item:last-child {
+                margin-left: 128.4px;
+            }
+        }
+
+    }
+
+    &__list--type--navigation {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 40px;
+
+        .list__item {
+            @include var.a-font;
+            font-weight: 500;
+        }
+
+        .list__item:before {
+            content: "";
+            width: 4px;
+            height: 36px;
+            position: absolute;
+            top: -6px;
+            left: -24px;
+            border-radius: 6px;
+            opacity: 0;
+            background-color: var.$aqua-color;
+            @include var.transition-func(opacity);
+        }
+
+        .list__item:hover {
+            a {
+                color: var.$black-grey-color;
+            }
+
+            &:before {
+                opacity: 1;
+            }
+        }
+
+        @media #{var.$s-max} {
+            gap: 24px;
+        }
+
+        @media #{var.$s-min} and #{var.$l-max} {
+            gap: 32px;
+        }
+
+        @media #{var.$l-min} {
+            gap: 30px;
+        }
+    }
+
+    &__list--type--top-footer {
+        gap: 16px;
+    }
+
+    &__list--type--address {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 16px;
+        gap: 12px;
+
+        .list__item {
+            @include var.a-font;
+            font-weight: 500;
+            font-style: normal;
+
+            &:hover {
+                a {
+                    @include var.transition-func(color);
+                    color: var.$black-grey-color;
+                }
+            }
+        }
+    }
+
+    &__list--type--bottom--footer {
+        gap: 7px;
+    }
+
+}

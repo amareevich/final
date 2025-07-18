@@ -1,0 +1,32 @@
+@use '../var';
+
+.separator {
+    width: 2px;
+    height: 32px;
+    border-radius: 0.5px;
+    background-color: #EAEAEA;
+    display: none;
+}
+
+@media #{var.$s-max} {
+    .separator {
+        &--type--middle {
+            display: block;
+        }
+    }
+}
+
+@media #{var.$s-min} and #{var.$l-max} {
+    .separator {
+
+        &--type--first,
+        &--type--last {
+            display: block;
+        }
+
+        &--type--last {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    }
+}

@@ -1,0 +1,53 @@
+@use '../var';
+
+
+.info {
+    width: 100%;
+    padding: 0 24px;
+    background-color: var.$grey-color;
+
+    &__text {
+        @include var.a-font;
+        font-size: 14px;
+        width: 412px;
+    }
+
+    &__button {
+        background-color: inherit;
+        border: none;
+        display: flex;
+        align-items: center;
+        margin-top: 16px;
+    }
+
+    &__link {
+        @include var.a-font;
+        font-weight: 500;
+        color: var.$black-color;
+        opacity: 1;
+        @include var.transition-func(opacity);
+
+        strong {
+            margin-left: 12px;
+            color: var.$pink-color;
+        }
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+    }
+}
+
+@media #{var.$s-max} {
+    .info__text {
+        width: 100%;
+    }
+
+    .info__button {
+        a {
+            width: 100%;
+            text-align: start;
+        }
+    }
+}

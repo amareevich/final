@@ -1,0 +1,81 @@
+@use '../var';
+
+.root {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 24px;
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-column-gap: 32px;
+        grid-row-gap: 18px;
+        padding-bottom: 14px;
+        overflow: hidden;
+        @include var.transition-func(height);
+
+        &--style--brends {
+            grid-auto-rows: 72px;
+            height: 170px;
+        }
+
+        &--style--equipment {
+            grid-auto-rows: 230px;
+            height: 240px;
+        }
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        padding: 16px;
+        border: 1px solid var.$grey-color;
+        border-radius: 6px;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.15);
+        background-color: white;
+
+        .root__text {
+            align-self: start;
+        }
+
+        .button {
+            align-self: end;
+        }
+    }
+
+    &__img {
+        max-height: 40px;
+    }
+}
+
+@media #{var.$s-max} {
+    .root {
+        width: 100%;
+        overflow: hidden;
+
+        &__list {
+            width: 1600%;
+            display: flex;
+            transition: inherit;
+            gap: 0;
+
+            &--style--brends {
+                height: 94px;
+            }
+
+            &--style--equipment {
+                height: 240px;
+            }
+        }
+
+        &__item {
+            display: flex;
+            min-width: 230px;
+            padding: 16px;
+        }
+    }
+}
