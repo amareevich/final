@@ -563,7 +563,7 @@ template {
 }
 .heading--type--page {
   padding: 24px;
-  box-shadow: inset 0 -1px 0 0 rgb(65, 246, 215), inset 0 0.5px 0 0 rgb(65, 246, 215);
+  box-shadow: inset 0 -0.7px 0 0 rgb(65, 246, 215), inset 0 0.5px 0 0 rgb(65, 246, 215);
   background: linear-gradient(90deg, rgb(248, 248, 248), white);
 }
 
