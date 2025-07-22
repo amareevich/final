@@ -1,6 +1,5 @@
 @use '../var';
 
-
 @keyframes menu--open {
     0% {
         left: -360px;
@@ -20,15 +19,6 @@
     100% {
         left: -360px;
     }
-}
-
-@mixin animation() {
-    animation-timing-function: ease;
-    animation-fill-mode: backwards;
-    animation-delay: 0ms;
-    animation-duration: 0.3s;
-    position: absolute;
-    top: 0;
 }
 
 .page {
@@ -55,14 +45,14 @@
                 left: 0;
                 z-index: 2;
                 box-shadow: 16px 0 52px rgba(14, 24, 80, 0.2);
-                @include animation();
+                @include var.animation();
             }
 
             &--action--close {
                 animation-name: menu--close;
                 left: -360px;
                 z-index: 2;
-                @include animation();
+                @include var.animation();
             }
         }
 
