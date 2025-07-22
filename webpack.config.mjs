@@ -14,6 +14,9 @@ export default {
     filename: "[name].js",
     chunkFilename: "chunks/[name].js",
   },
+  stats: {
+    children: true
+  },
   resolve: {
     alias: {
       "@logo": path.resolve(__dirname, "style/logo/logo_images"),
@@ -61,9 +64,14 @@ export default {
     ],
   },
   plugins: [
-    new ESLintWebpackPlugin({ fix: true }),
+    new ESLintWebpackPlugin({ extensions: ['js'], fix: true }),
     new MiniCssExtractPlugin({ filename: "[name].css" }),
-    new HtmlWebpackPlugin({ template: "index.html" }),
+    new HtmlWebpackPlugin({
+      template: "index.html", minify: {
+        collapseWhitespace: true,
+        removeComments: true
+      }
+    }),
     new CopyWebpackPlugin({
       patterns: [
         {
